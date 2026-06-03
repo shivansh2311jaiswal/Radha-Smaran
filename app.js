@@ -159,16 +159,12 @@ text.remove();
 // KEY PRESS
 // ==========================
 
-document.addEventListener("keydown", (e) => {
-
-    e.preventDefault();
-
-    if (e.repeat) return;
+function increaseCount() {
 
     count++;
     totalCount++;
 
-    if(count > bestDay){
+    if (count > bestDay) {
         bestDay = count;
     }
 
@@ -178,6 +174,22 @@ document.addEventListener("keydown", (e) => {
         Math.random() * window.innerWidth,
         window.innerHeight - 150
     );
+}
+
+// Laptop keyboard support
+document.addEventListener("keydown", (e) => {
+
+    e.preventDefault();
+
+    if (e.repeat) return;
+
+    increaseCount();
+});
+
+// Mobile touch support
+document.addEventListener("touchstart", () => {
+
+    increaseCount();
 
 });
 // ==========================
