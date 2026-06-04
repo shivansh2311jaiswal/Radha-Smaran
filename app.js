@@ -187,10 +187,17 @@ document.addEventListener("keydown", (e) => {
 });
 
 // Mobile touch support
-document.addEventListener("touchstart", () => {
+const tapArea = document.getElementById("tapArea");
 
+// Only this area increases count (PHONE)
+tapArea.addEventListener("touchstart", (e) => {
+    e.preventDefault();
     increaseCount();
+});
 
+// Only this area increases count (CLICK)
+tapArea.addEventListener("click", () => {
+    increaseCount();
 });
 // ==========================
 // MILESTONES
